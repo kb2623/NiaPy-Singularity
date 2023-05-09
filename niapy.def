@@ -23,7 +23,7 @@ From: ubuntu:lunar
 	cd /opt && rm -f /opt/Python-${PYTHON_VERSION}.tgz && rm -rf /opt/Python-${PYTHON_VERSION}
 
 	## Install additional programs
-	apt update && apt install -y git software-properties-common
+	apt update && apt install -y git graphviz pandoc software-properties-common
 	# Install Neovim
 	add-apt-repository ppa:neovim-ppa/unstable
 	apt update && apt install -y neovim
@@ -32,7 +32,8 @@ From: ubuntu:lunar
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pipenv
 
 	## Install NiaOrg/NiaPy
-	git clone https://github.com/NiaOrg/NiaPy.git /opt/NiaPy && cd /opt/NiaPy
+	git clone https://github.com/NiaOrg/NiaPy.git /opt/NiaPy
+	cd /opt/NiaPy && make
 	# TODO
 
 	## Set default programs
