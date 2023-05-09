@@ -2,9 +2,9 @@ BootStrap: docker
 From: ubuntu:lunar
 
 %labels
-   Maintainer Klemen Berkovic
+	Maintainer Klemen Berkovic
 	Contact roxor1992@gmail.com
-   Recipe https://github.com/kb2623/NiaPy-Singularity
+	Recipe https://github.com/kb2623/NiaPy-Singularity
 	Tags python, microframework, nature-inspired-algorithms, swarm-intelligence, optimization-algorithms
 	Version v0.0.1
 
@@ -22,10 +22,6 @@ From: ubuntu:lunar
 	# Clean Python build
 	cd /opt && rm -f /opt/Python-${PYTHON_VERSION}.tar.xz && rm -rf /opt/Python-${PYTHON_VERSION}
 
-	## Install NiaOrg/NiaPy
-	git clone https://github.com/NiaOrg/NiaPy.git /opt/NiaPy && cd /opt/NiaPy
-	# TODO
-
 	## Install additional programs
 	apt update && apt install -y git software-properties-common
 	# Install Neovim
@@ -34,6 +30,10 @@ From: ubuntu:lunar
 	# Install pip
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pip 
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pipenv
+
+	## Install NiaOrg/NiaPy
+	git clone https://github.com/NiaOrg/NiaPy.git /opt/NiaPy && cd /opt/NiaPy
+	# TODO
 
 	## Set default programs
 	# Python
