@@ -24,9 +24,6 @@ From: ubuntu:lunar
 
 	## Install additional programs
 	apt update && apt install -y git graphviz pandoc software-properties-common
-	# Install Neovim
-	add-apt-repository ppa:neovim-ppa/unstable
-	apt update && apt install -y neovim
 	# Install pip
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pip 
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pipenv
@@ -47,13 +44,6 @@ From: ubuntu:lunar
 	update-alternatives --config pip
 	update-alternatives --install /usr/bin/pip${PYTHON_VERSION_MAJOR} pip${PYTHON_VERSION_MAJOR} /usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} 0
 	update-alternatives --config pip${PYTHON_VERSION_MAJOR}
-	# Neovim
-	update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 0
-	update-alternatives --config vi
-	update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 0
-	update-alternatives --config vim
-	update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 0
-	update-alternatives --config editor
 
 %environment
 	export LC_ALL=C
