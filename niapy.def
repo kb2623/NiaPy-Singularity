@@ -20,7 +20,7 @@ From: ubuntu:lunar
 	tar xzf Python-${PYTHON_VERSION}.tgz && cd Python-${PYTHON_VERSION}
 	./configure --prefix=/usr/local --enable-optimizations --enable-ipv6 && make -j$(nproc) && make install
 	# Clean Python build
-	cd /opt && rm -f /opt/Python-${PYTHON_VERSION}.tar.xz && rm -rf /opt/Python-${PYTHON_VERSION}
+	cd /opt && rm -f /opt/Python-${PYTHON_VERSION}.tgz && rm -rf /opt/Python-${PYTHON_VERSION}
 
 	## Install additional programs
 	apt update && apt install -y git software-properties-common
