@@ -33,7 +33,7 @@ From: ubuntu:lunar
 
 	## Install NiaOrg/NiaPy
 	git clone https://github.com/NiaOrg/NiaPy.git /opt/NiaPy
-	cd /opt/NiaPy && pipenv install --system
+	cd /opt/NiaPy && pipenv install --dev --system
 	cd /opt && rm -rf NiaPy
 
 	## Set default programs
