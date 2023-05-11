@@ -30,8 +30,7 @@ From: ubuntu:lunar
 
 	## Install NiaOrg/NiaPy
 	git clone https://github.com/NiaOrg/NiaPy.git /opt/NiaPy
-	cd /opt/NiaPy && pipenv install --deploy --system
-	cd /opt && rm -rf NiaPy
+	cd /opt/NiaPy && pipenv install
 
 	## Set default programs
 	# Python
