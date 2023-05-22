@@ -57,7 +57,7 @@ From: ubuntu:lunar
 	update-alternatives --config editor
 
 %environment
-	export LC_ALL=C
+	export LC_ALL=en_US.UTF-8
 	export SHELL=/bin/bash
 
 %runscript
