@@ -1,6 +1,6 @@
-BUILD_DEFINITION_FILE ?= $(shell test -z "${D}" && echo "niapy.def" || echo "niapy.devel.def")
-IMAGE_FILE ?= $(shell test -z "$(D)" && echo "niapy.sif" || echo "niapy-devel.sif")
-CONTAINER_NAME ?= $(shell test -z "${D}" && echo "niapy" || echo "niapy-devel")
+BUILD_DEFINITION_FILE:=niapy.def
+IMAGE_FILE:=niapy.sif
+CONTAINER_NAME:=niapy
 
 SINGULARITY_CACHEDIR=$(pwd)/build
 
