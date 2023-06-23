@@ -26,13 +26,17 @@ From: ubuntu:lunar
 	apt update && apt install -y git graphviz pandoc software-properties-common
 	# Install Neovim
 	add-apt-repository ppa:neovim-ppa/unstable
-	apt update && apt install -y neovim universal-ctags 
+	apt update && apt install -y neovim
+	# Install ctags
+	apt update && apt install -y universal-ctags 
+	# Install tmux
+	apt update && apt install -y tmux
 	# Install pip
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pip 
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pipenv
-	# Install ctags
-	apt update && apt install -y tmux
-
+	# Install Shells
+	apt update && apt install -y bash zsh
+	
 	## Install NiaOrg/NiaPy
 	git clone https://github.com/NiaOrg/NiaPy.git /opt/NiaPy
 	cd /opt/NiaPy && pipenv install --dev

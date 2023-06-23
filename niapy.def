@@ -23,7 +23,7 @@ From: ubuntu:lunar
 	cd /opt && rm -f /opt/Python-${PYTHON_VERSION}.tgz && rm -rf /opt/Python-${PYTHON_VERSION}
 
 	## Install additional programs
-	apt update && apt install -y git graphviz pandoc software-properties-common
+	apt update && apt install -y git graphviz pandoc software-properties-common bash
 	# Install pip
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pip 
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pipenv
