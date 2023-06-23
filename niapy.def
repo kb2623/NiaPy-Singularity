@@ -23,14 +23,23 @@ From: ubuntu:lunar
 	cd /opt && rm -f /opt/Python-${PYTHON_VERSION}.tgz && rm -rf /opt/Python-${PYTHON_VERSION}
 
 	## Install additional programs
-	apt update && apt install -y git graphviz pandoc software-properties-common bash
+	apt update && apt install -y git graphviz pandoc software-properties-common
+	# Install Neovim
+	add-apt-repository ppa:neovim-ppa/unstable
+	apt update && apt install -y neovim
+	# Install ctags
+	apt update && apt install -y universal-ctags 
+	# Install tmux
+	apt update && apt install -y tmux
 	# Install pip
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pip 
 	/usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} install --upgrade pipenv
-
+	# Install Shells
+	apt update && apt install -y bash zsh
+	
 	## Install NiaOrg/NiaPy
 	git clone https://github.com/NiaOrg/NiaPy.git /opt/NiaPy
-	cd /opt/NiaPy && pipenv install
+	cd /opt/NiaPy && pipenv install --dev
 
 	## Set default programs
 	# Python
@@ -43,9 +52,16 @@ From: ubuntu:lunar
 	update-alternatives --config pip
 	update-alternatives --install /usr/bin/pip${PYTHON_VERSION_MAJOR} pip${PYTHON_VERSION_MAJOR} /usr/local/bin/pip${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR_FIRST} 0
 	update-alternatives --config pip${PYTHON_VERSION_MAJOR}
+	# Neovim
+	update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 0
+	update-alternatives --config vi
+	update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 0
+	update-alternatives --config vim
+	update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 0
+	update-alternatives --config editor
 
 %environment
-	export LC_ALL=C
+	export LC_ALL=en_US.UTF-8
 	export SHELL=/bin/bash
 
 %runscript
